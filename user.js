@@ -234,10 +234,62 @@ user_pref("layout.word_select.eat_space_to_next_word", false);
 // visit https://github.com/yokoffing/Betterfox/wiki/Common-Overrides
 // visit https://github.com/yokoffing/Betterfox/wiki/Optional-Hardening
 // Enter your personal overrides below this line:
+
 // PREF: remove sponsored content on New Tab page
 user_pref("browser.newtabpage.activity-stream.showSponsoredTopSites", false); // Sponsored shortcuts 
 user_pref("browser.newtabpage.activity-stream.feeds.section.topstories", false); // Recommended by Pocket
 user_pref("browser.newtabpage.activity-stream.showSponsored", false); // Sponsored Stories
+
+// PREF: disable Firefox Sync
+user_pref("identity.fxaccounts.enabled", false);
+
+// PREF: disable Firefox View
+user_pref("browser.tabs.firefox-view", false);
+user_pref("browser.tabs.firefox-view-next", false);
+user_pref("browser.tabs.firefox-view-newIcon", false); // needed?
+user_pref("browser.firefox-view.feature-tour", "{\"screen\":\"\",\"complete\":true}");
+
+// PREF: disable login manager
+user_pref("signon.rememberSignons", false);
+
+// PREF: disable address and credit card manager
+user_pref("extensions.formautofill.addresses.enabled", false);
+user_pref("extensions.formautofill.creditCards.enabled", false);
+
+// PREF: do not allow embedded tweets, Instagram, Reddit, and Tiktok posts
+user_pref("urlclassifier.trackingSkipURLs", "");
+user_pref("urlclassifier.features.socialtracking.skipURLs", "");
+
+// PREF: enable HTTPS-Only Mode
+// Warn me before loading sites that don't support HTTPS
+// in both Normal and Private Browsing windows.
+// HTTPS doesn't mean "trust this." It means "this is private." You may be having a private conversation with Satan. — Scott Hanselman
+user_pref("dom.security.https_only_mode", true);
+user_pref("dom.security.https_only_mode_error_page_user_suggestions", true);
+
+// PREF: enforce certificate pinning
+// [ERROR] MOZILLA_PKIX_ERROR_KEY_PINNING_FAILURE
+// Sometimes antivirus software — or some other source — won't let you open websites
+// Reset it to 1 if you run into issues.
+user_pref("security.cert_pinning.enforcement_level", 2);
+
+// PREF: delete cookies, cache, and site data on shutdown
+user_pref("privacy.sanitize.sanitizeOnShutdown", true);
+user_pref("privacy.clearOnShutdown.cache", true);
+user_pref("privacy.clearOnShutdown.cookies", true);
+user_pref("privacy.clearOnShutdown.offlineApps", true);
+
+// PREF: do not save extra session data such as form content,
+// scrollbar positions, and POST data after crashes or restarts
+user_pref("browser.sessionstore.privacy_level", 2);
+
+// PREF: require safe SSL negotiation
+// [ERROR] SSL_ERROR_UNSAFE_NEGOTIATION
+// Some sites, like EA.com, will not let you login due to their weak encryption.
+user_pref("security.ssl.require_safe_negotiation", true);
+
+// PREF: disable telemetry of what default browser you use [WINDOWS]
+user_pref("default-browser-agent.enabled", false);
 
 /****************************************************************************
  * SECTION: SMOOTHFOX                                                       *
